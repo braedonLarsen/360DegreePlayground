@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45A8A7ED2996819400524186 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8A7EC2996819400524186 /* Picture.swift */; };
 		45ADC6C329952CFD00AB76AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6C229952CFD00AB76AE /* AppDelegate.swift */; };
 		45ADC6C529952CFD00AB76AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6C429952CFD00AB76AE /* SceneDelegate.swift */; };
 		45ADC6C729952CFD00AB76AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6C629952CFD00AB76AE /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45A8A7EC2996819400524186 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		45ADC6BF29952CFD00AB76AE /* 360DegreePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 360DegreePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45ADC6C229952CFD00AB76AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45ADC6C429952CFD00AB76AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				45ADC6C229952CFD00AB76AE /* AppDelegate.swift */,
 				45ADC6C429952CFD00AB76AE /* SceneDelegate.swift */,
 				45ADC6C629952CFD00AB76AE /* ViewController.swift */,
+				45A8A7EC2996819400524186 /* Picture.swift */,
 				45ADC6C829952CFD00AB76AE /* Main.storyboard */,
 				45ADC6CB29952CFF00AB76AE /* Assets.xcassets */,
 				45ADC6CD29952CFF00AB76AE /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A8A7ED2996819400524186 /* Picture.swift in Sources */,
 				45ADC6C729952CFD00AB76AE /* ViewController.swift in Sources */,
 				45ADC6C329952CFD00AB76AE /* AppDelegate.swift in Sources */,
 				45ADC6C529952CFD00AB76AE /* SceneDelegate.swift in Sources */,
