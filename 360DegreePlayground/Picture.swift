@@ -12,6 +12,7 @@ class Picture
      var image: String
      var xCord: Int
      var yCord: Int
+
     
     
     init(i: String, x:Int, y: Int )
