@@ -12,6 +12,7 @@ class Picture
      var image: String
      var xCord: Int
      var yCord: Int
+    var whiteSpace: Bool
 
     
     
@@ -20,6 +21,7 @@ class Picture
         image = i
         xCord = x
         yCord = y
+        whiteSpace = true 
     }
     
 }
