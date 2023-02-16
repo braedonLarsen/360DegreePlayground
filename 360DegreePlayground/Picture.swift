@@ -21,7 +21,7 @@ class Picture
         image = i
         xCord = x
         yCord = y
-        whiteSpace = true 
+        whiteSpace = false
     }
     
 }
