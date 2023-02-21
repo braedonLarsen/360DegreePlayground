@@ -42,8 +42,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func rightArrowAction(_ sender: Any){
-        print("THINGIG: \(secondFloor2D[2][4].image)")
-        
         updateImage(i: 0, j: 1)
     }
     
@@ -54,11 +52,18 @@ class ViewController: UIViewController {
     {
         print("X:\(xValue)")
         print("Y:\(yValue)")
-        if xValue + i <= ARRAY_SIZE_X
+        print("J: \(j)")
+        if xValue + i <= ARRAY_SIZE_X && xValue + i >= 0
         {  xValue += i}
-        if yValue + j <= ARRAY_SIZE_Y
+        if yValue + j <= ARRAY_SIZE_Y && yValue + j >= 0
         {  yValue += j}
-        imageViewOutlet.image = UIImage(named: secondFloor2D[xValue].image)
+        var tempImage = secondFloor2D[xValue][yValue]
+        imageViewOutlet.image = UIImage(named:tempImage.image)
+        
+        print("FINAL \(xValue) , \(yValue)")
+        print("HELP \(tempImage.image)")
+        
+        //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
         
         
         
@@ -83,9 +88,12 @@ class ViewController: UIViewController {
             {
                 var inString = "\(i),\(j)"
                 littleArray.append(Picture(i: inString, x: i, y: j))
-                print("\(i),\(j)")
-                j += 1
+                print("LITTLE: \(littleArray[j].image)")
+                print("Nums: \(i),\(j)")
                 secondFloor2D[i].append(contentsOf: littleArray)
+                print(secondFloor2D[i][j].image)
+                j += 1
+
             }
             i += 1
         }
@@ -96,15 +104,7 @@ class ViewController: UIViewController {
                 p.whiteSpace = true
             }
         }
-//            secondFloor2D[0][0] = Picture(i: "0,0", x: 0, y: 0)
-//            secondFloor2D[1][0] = Picture(i: "1,0", x: 1, y: 0)
-//            secondFloor2D[2][0] = Picture(i: "2,0", x: 2, y: 0)
-//            secondFloor2D[3][0] = Picture(i: "3,0", x: 3, y: 0)
-//
-//            secondFloor2D[1][1] = Picture(i: "1,1", x: 1, y: 1)
-//
-//            secondFloor2D[2][1] = Picture(i: "2,1", x: 2, y: 1)
-//            secondFloor2D[2][2] = Picture(i: "2,2", x: 2, y: 2)
+
         
     }
     

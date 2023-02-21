@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="360Test" translatesAutoresizingMaskIntoConstraints="NO" id="o77-CK-WI1">
-                                <rect key="frame" x="0.0" y="-16" width="393" height="492"/>
+                                <rect key="frame" x="0.0" y="-16" width="393" height="557"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -48,7 +48,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="arrow.right" catalog="system"/>
                                 <connections>
-                                    <action selector="leftArrowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jwo-2R-jFY"/>
                                     <action selector="rightArrowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gs1-YP-fIJ"/>
                                 </connections>
                             </button>
@@ -57,6 +56,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="arrow.left" catalog="system"/>
+                                <connections>
+                                    <action selector="leftArrowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1b-6n-QTO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
