@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var ARRAY_SIZE_X = 6
     var ARRAY_SIZE_Y = 6
     var secondFloor2D = [[Picture]](repeating:[Picture]() , count: 7)
-    var secondFloor: [Picture] = [Picture(i: "360ImageTest1", x: 0, y: 0), Picture(i: "360ImageTest2", x: 1, y: 0), Picture(i: "360ImageTest3", x: 2, y: 0), Picture(i: "360ImageTest4", x: 3, y: 0),Picture(i: "360ImageTest1", x: 4, y: 0),Picture(i: "360ImageTest2", x: 5, y: 0),Picture(i: "360ImageTest3", x: 6, y: 0),Picture(i: "360ImageTest4", x: 7, y: 0),Picture(i: "360ImageTest0", x: 8, y: 0),Picture(i: "360ImageTest1", x: 9, y: 0)]
+    //var secondFloor: [Picture] = [Picture(i: "360ImageTest1", x: 0, y: 0), Picture(i: "360ImageTest2", x: 1, y: 0), Picture(i: "360ImageTest3", x: 2, y: 0), Picture(i: "360ImageTest4", x: 3, y: 0),Picture(i: "360ImageTest1", x: 4, y: 0),Picture(i: "360ImageTest2", x: 5, y: 0),Picture(i: "360ImageTest3", x: 6, y: 0),Picture(i: "360ImageTest4", x: 7, y: 0),Picture(i: "360ImageTest0", x: 8, y: 0),Picture(i: "360ImageTest1", x: 9, y: 0)]
     var xValue = 0
     var yValue = 0
     
@@ -54,16 +54,19 @@ class ViewController: UIViewController {
         print("Y:\(yValue)")
         print("J: \(j)")
         if xValue + i <= ARRAY_SIZE_X && xValue + i >= 0
-        {  xValue += i}
+        {  xValue += i
+            print("test1")
+        }
         if yValue + j <= ARRAY_SIZE_Y && yValue + j >= 0
-        {  yValue += j}
+        {  yValue += j
+            print("test2")
+        }
         var tempImage = secondFloor2D[xValue][yValue]
         imageViewOutlet.image = UIImage(named:tempImage.image)
         
-        print("FINAL \(xValue) , \(yValue)")
-        print("HELP \(tempImage.image)")
+        print("Reported X and Y:  \(xValue) , \(yValue)")
+        print("Image Value:  \(tempImage.image)")
         
-        //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
         
         
         
@@ -87,16 +90,26 @@ class ViewController: UIViewController {
             while (j <= ARRAY_SIZE_Y)
             {
                 var inString = "\(i),\(j)"
-                littleArray.append(Picture(i: inString, x: i, y: j))
+                var inf = UIImage(named: inString)
+                print("inString: \(inString)")
+                
+                if inf == nil
+                {
+                    
+                    inf = UIImage(named: "def")
+                }
+                    littleArray.append(Picture(i: inString, x: i, y: j, im: inf!))
+                
+                
                 print("LITTLE: \(littleArray[j].image)")
                 print("Nums: \(i),\(j)")
-                secondFloor2D[i].append(contentsOf: littleArray)
                 print(secondFloor2D[i][j].image)
                 j += 1
-
             }
+            secondFloor2D[i].append(contentsOf: littleArray)
             i += 1
         }
+      
         func checkImage(p: Picture)
         {
             if UIImage(named: p.image) != nil
@@ -104,6 +117,7 @@ class ViewController: UIViewController {
                 p.whiteSpace = true
             }
         }
+        
 
         
     }
