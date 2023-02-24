@@ -60,6 +60,26 @@
                                     <action selector="leftArrowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1b-6n-QTO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZr-kO-lcF">
+                                <rect key="frame" x="128" y="601" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="leftArrowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CML-k3-ZDH"/>
+                                    <action selector="rotateRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="viX-vS-eZQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZO-gh-35U">
+                                <rect key="frame" x="42" y="601" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="leftArrowAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AXF-dE-jiP"/>
+                                    <action selector="rotateLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zgt-Wl-jfk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,6 +104,8 @@
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="arrow.up" catalog="system" width="118" height="128"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
