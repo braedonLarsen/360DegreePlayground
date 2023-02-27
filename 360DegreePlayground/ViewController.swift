@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     //var secondFloor: [Picture] = [Picture(i: "360ImageTest1", x: 0, y: 0), Picture(i: "360ImageTest2", x: 1, y: 0), Picture(i: "360ImageTest3", x: 2, y: 0), Picture(i: "360ImageTest4", x: 3, y: 0),Picture(i: "360ImageTest1", x: 4, y: 0),Picture(i: "360ImageTest2", x: 5, y: 0),Picture(i: "360ImageTest3", x: 6, y: 0),Picture(i: "360ImageTest4", x: 7, y: 0),Picture(i: "360ImageTest0", x: 8, y: 0),Picture(i: "360ImageTest1", x: 9, y: 0)]
     var xValue = 0
     var yValue = 0
-    
+    var cardinalDirection = 0 
 
 // Method for navigating between images is a 2D array of images with buttons to update the active index which stores the images and specific indexes
     
@@ -49,17 +49,34 @@ class ViewController: UIViewController {
     @IBAction func panAction(_ sender: Any) {
         
     }
+    
     @IBAction func rotateLeft(_ sender: Any) {
-        
+        rotateImage(w:-1)
         
     }
+    
     @IBAction func rotateRight(_ sender: Any) {
-        
+        rotateImage(w:1)
     }
     
     
     
-    
+    func rotateImage(w: Int)
+    {
+        if cardinalDirection == 3 && w > 0
+        {
+            cardinalDirection = 0
+        }
+        else if cardinalDirection == 0 && w < 0
+        {
+            cardinalDirection == 3
+        }
+        else
+        {
+            cardinalDirection += w
+        }
+        
+    }
     func updateImage(i: Int, j: Int)
     {
         print("X:\(xValue)")
@@ -74,7 +91,27 @@ class ViewController: UIViewController {
             print("test2")
         }
         var tempImage = secondFloor2DNorth[xValue][yValue]
-        imageViewOutlet.image = UIImage(named:tempImage.image)
+        print("Cardinal Direction: \(cardinalDirection)")
+        if cardinalDirection == 0
+        {
+            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageNorth
+            print("displayNorth")
+        }
+        else if cardinalDirection == 1
+        {
+            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageEast
+            print("displayEast")
+        }
+        else if cardinalDirection == 2
+        {
+            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageSouth
+            print("displaySouth")
+        }
+        else if cardinalDirection == 3
+        {
+            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageWest
+            print("displayWest")
+        }
         
         print("Reported X and Y:  \(xValue) , \(yValue)")
         print("Image Value:  \(tempImage.image)")
@@ -92,7 +129,6 @@ class ViewController: UIViewController {
     }
     func create2D()
     {
-      
         var i = 0
         var j = 0
         while (i <= ARRAY_SIZE_X)
@@ -102,27 +138,31 @@ class ViewController: UIViewController {
             while (j <= ARRAY_SIZE_Y)
             {
                 var inString = "\(i),\(j)"
-                var imN = UIImage(named: "N \(inString)")
-                var imW = UIImage(named: "W \(inString)")
-                var imE = UIImage(named: "E \(inString)")
-                var imS = UIImage(named: "S \(inString)")
+                var imN = UIImage(named: "N\(inString)")
+                var imW = UIImage(named: "W\(inString)")
+                var imE = UIImage(named: "E\(inString)")
+                var imS = UIImage(named: "S\(inString)")
                 print("inString: \(inString)")
                 
                 if imN == nil
                 {
                     imN = UIImage(named: "def")
+                    print("North Default")
                 }
                 if imW == nil
                 {
                     imW = UIImage(named: "def")
+                    print("West Default")
                 }
                 if imE == nil
                 {
                     imE = UIImage(named: "def")
+                    print("East Default")
                 }
                 if imS == nil
                 {
                     imS = UIImage(named: "def")
+                    print("South Default")
                 }
                 littleArray.append(Picture(i: inString, x: i, y: j, iN: imN! ,iE: imE!, iW: imW!, iS: imS! ))
                 

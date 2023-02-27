@@ -18,6 +18,7 @@ class Picture
     var imageEast: UIImage
     var imageWest: UIImage
     var imageSouth: UIImage
+    
   
     
     
