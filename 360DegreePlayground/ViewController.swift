@@ -8,7 +8,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var debugDataOutlet: UILabel!
     @IBOutlet weak var imageViewOutlet: UIImageView!
+    
     var ARRAY_SIZE_X = 6
     var ARRAY_SIZE_Y = 6
     var currentArray = 0
@@ -69,7 +71,7 @@ class ViewController: UIViewController {
         }
         else if cardinalDirection == 0 && w < 0
         {
-            cardinalDirection == 3
+            cardinalDirection = 3
         }
         else
         {
@@ -112,7 +114,7 @@ class ViewController: UIViewController {
             imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageWest
             print("displayWest")
         }
-        
+        print("isWhiteSpace \(secondFloor2DNorth[xValue][yValue].whiteSpace)")
         print("Reported X and Y:  \(xValue) , \(yValue)")
         print("Image Value:  \(tempImage.image)")
         
@@ -127,6 +129,10 @@ class ViewController: UIViewController {
 //        xValue = secondFloor[xValue + i].xCord
         
     }
+//    func printData()
+//    {
+//        var output = "Cords: \(secondFloor2DNorth[xValue][yValue].image) \ \(secondFloor2DNorth[xValue][yValue].whiteSpace)"
+//    }
     func create2D()
     {
         var i = 0
@@ -137,36 +143,42 @@ class ViewController: UIViewController {
             var littleArray = [Picture]()
             while (j <= ARRAY_SIZE_Y)
             {
+                print("Create New Object")
                 var inString = "\(i),\(j)"
                 var imN = UIImage(named: "N\(inString)")
                 var imW = UIImage(named: "W\(inString)")
                 var imE = UIImage(named: "E\(inString)")
                 var imS = UIImage(named: "S\(inString)")
                 print("inString: \(inString)")
-                
+                var isEmpty = false
                 if imN == nil
                 {
                     imN = UIImage(named: "def")
                     print("North Default")
+                    isEmpty = true
                 }
                 if imW == nil
                 {
                     imW = UIImage(named: "def")
                     print("West Default")
+                    isEmpty = true
                 }
                 if imE == nil
                 {
                     imE = UIImage(named: "def")
                     print("East Default")
+                    isEmpty = true
                 }
                 if imS == nil
                 {
                     imS = UIImage(named: "def")
                     print("South Default")
+                    isEmpty = true
+                    
                 }
-                littleArray.append(Picture(i: inString, x: i, y: j, iN: imN! ,iE: imE!, iW: imW!, iS: imS! ))
-                
-                
+                print(isEmpty)
+                littleArray.append(Picture(i: inString, x: i, y: j,wS: isEmpty, iN: imN! ,iE: imE!, iW: imW!, iS: imS! ))
+    
                 print("LITTLE: \(littleArray[j].image)")
                 print("Nums: \(i),\(j)")
                 //print(secondFloor2D[i][j].image)

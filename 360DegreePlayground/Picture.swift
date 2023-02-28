@@ -25,7 +25,7 @@ class Picture
 
     
     
-    init(i: String, x:Int, y: Int, iN:UIImage, iE:UIImage, iW:UIImage, iS:UIImage)
+    init(i: String, x:Int, y: Int,wS: Bool, iN:UIImage, iE:UIImage, iW:UIImage, iS:UIImage)
     {
         image = i
         xCord = x
