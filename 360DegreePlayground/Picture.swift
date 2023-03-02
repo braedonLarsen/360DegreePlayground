@@ -13,7 +13,10 @@ class Picture
     var image: String
     var xCord: Int
     var yCord: Int
-    var whiteSpace: Bool
+    var whiteSpaceNorth: Bool
+    var whiteSpaceEast: Bool
+    var whiteSpaceSouth: Bool
+    var whiteSpaceWest: Bool
     var imageNorth: UIImage
     var imageEast: UIImage
     var imageWest: UIImage
@@ -25,12 +28,15 @@ class Picture
 
     
     
-    init(i: String, x:Int, y: Int,wS: Bool, iN:UIImage, iE:UIImage, iW:UIImage, iS:UIImage)
+    init(i: String, x:Int, y: Int,wSN: Bool, wSE: Bool, wSS: Bool, wSW: Bool, iN:UIImage, iE:UIImage, iW:UIImage, iS:UIImage)
     {
         image = i
         xCord = x
         yCord = y
-        whiteSpace = false
+        whiteSpaceNorth = wSN
+        whiteSpaceEast = wSE
+        whiteSpaceSouth = wSS
+        whiteSpaceWest = wSW
         imageNorth = iN
         imageEast = iE
         imageWest = iW

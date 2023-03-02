@@ -80,19 +80,11 @@
                                     <action selector="rotateLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zgt-Wl-jfk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVZ-Ro-GTt">
-                                <rect key="frame" x="16" y="666" width="259" height="152"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="debugDataOutlet" destination="CVZ-Ro-GTt" id="TyP-2u-ZjG"/>
                         <outlet property="imageViewOutlet" destination="o77-CK-WI1" id="Nje-ms-TqU"/>
                     </connections>
                 </viewController>

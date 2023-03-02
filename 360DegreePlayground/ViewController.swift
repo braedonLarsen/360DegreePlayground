@@ -8,7 +8,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var debugDataOutlet: UILabel!
     @IBOutlet weak var imageViewOutlet: UIImageView!
     
     var ARRAY_SIZE_X = 6
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
         //secondFloor2D[0][0] = Picture(i: "360ImageTest1", x: 0, y: 0)
         create2D()
         updateImage(i: xValue, j: yValue)
+        rotateImage(w: 0)
         // Do any additional setup after loading the view.
     }
     
@@ -65,34 +65,54 @@ class ViewController: UIViewController {
     
     func rotateImage(w: Int)
     {
+        
         if cardinalDirection == 3 && w > 0
         {
-            cardinalDirection = 0
+            if secondFloor2DNorth[xValue][yValue].whiteSpaceNorth == false
+            {
+                cardinalDirection = 0
+            }
         }
         else if cardinalDirection == 0 && w < 0
         {
-            cardinalDirection = 3
+            if secondFloor2DNorth[xValue][yValue].whiteSpaceWest == false
+            {
+                cardinalDirection = 3
+            }
         }
         else
         {
             cardinalDirection += w
         }
-        
     }
     func updateImage(i: Int, j: Int)
     {
+        var xCheck = false
+        var yCheck = false
         print("X:\(xValue)")
         print("Y:\(yValue)")
         print("J: \(j)")
         if xValue + i <= ARRAY_SIZE_X && xValue + i >= 0
-        {  xValue += i
+        {
+            xValue += i
             print("test1")
+            xCheck = true
         }
         if yValue + j <= ARRAY_SIZE_Y && yValue + j >= 0
         {  yValue += j
             print("test2")
+            yCheck = true
         }
         var tempImage = secondFloor2DNorth[xValue][yValue]
+        if xCheck && yCheck
+        {
+            if tempImage.whiteSpaceNorth
+            {
+                xValue-=i
+                yValue-=j
+                tempImage = secondFloor2DNorth[xValue][yValue]
+            }
+        }
         print("Cardinal Direction: \(cardinalDirection)")
         if cardinalDirection == 0
         {
@@ -114,7 +134,7 @@ class ViewController: UIViewController {
             imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageWest
             print("displayWest")
         }
-        print("isWhiteSpace \(secondFloor2DNorth[xValue][yValue].whiteSpace)")
+        print("isWhiteSpace \(secondFloor2DNorth[xValue][yValue].whiteSpaceNorth)")
         print("Reported X and Y:  \(xValue) , \(yValue)")
         print("Image Value:  \(tempImage.image)")
         
@@ -150,34 +170,37 @@ class ViewController: UIViewController {
                 var imE = UIImage(named: "E\(inString)")
                 var imS = UIImage(named: "S\(inString)")
                 print("inString: \(inString)")
-                var isEmpty = false
+                var isEmptyNorth = false
+                var isEmptyEast = false
+                var isEmptySouth = false
+                var isEmptyWest = false
                 if imN == nil
                 {
                     imN = UIImage(named: "def")
                     print("North Default")
-                    isEmpty = true
+                    isEmptyNorth = true
                 }
                 if imW == nil
                 {
                     imW = UIImage(named: "def")
                     print("West Default")
-                    isEmpty = true
+                    isEmptyWest = true
                 }
                 if imE == nil
                 {
                     imE = UIImage(named: "def")
                     print("East Default")
-                    isEmpty = true
+                    isEmptyEast = true
                 }
                 if imS == nil
                 {
                     imS = UIImage(named: "def")
                     print("South Default")
-                    isEmpty = true
-                    
+                    isEmptySouth = true
                 }
-                print(isEmpty)
-                littleArray.append(Picture(i: inString, x: i, y: j,wS: isEmpty, iN: imN! ,iE: imE!, iW: imW!, iS: imS! ))
+                
+                //print(isEmpty)
+                littleArray.append(Picture(i: inString, x: i, y: j,wSN: isEmptyNorth, wSE: isEmptyEast, wSS: isEmptySouth, wSW: isEmptySouth, iN: imN! ,iE: imE!, iW: imW!, iS: imS! ))
     
                 print("LITTLE: \(littleArray[j].image)")
                 print("Nums: \(i),\(j)")
@@ -188,13 +211,7 @@ class ViewController: UIViewController {
             i += 1
         }
       
-        func checkImage(p: Picture)
-        {
-            if UIImage(named: p.image) != nil
-            {
-                p.whiteSpace = true
-            }
-        }
+
         
 
         
