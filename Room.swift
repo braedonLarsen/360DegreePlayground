@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-class Room
+class Room: Codable 
 {
     
     
