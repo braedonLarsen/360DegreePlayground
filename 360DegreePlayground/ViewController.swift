@@ -5,15 +5,19 @@
 //  Created by BRAEDON LARSEN on 2/9/23.
 //
 import UIKit
-
+class AppData
+{
+    static var ARRAY_SIZE_X = 6
+    static var ARRAY_SIZE_Y = 6
+    static var secondFloor2DNorth = [[Picture]](repeating:[Picture]() , count: 7)
+}
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageViewOutlet: UIImageView!
     
-    var ARRAY_SIZE_X = 6
-    var ARRAY_SIZE_Y = 6
+  
     var currentArray = 0
-    var secondFloor2DNorth = [[Picture]](repeating:[Picture]() , count: 7)
+
     //var secondFloor: [Picture] = [Picture(i: "360ImageTest1", x: 0, y: 0), Picture(i: "360ImageTest2", x: 1, y: 0), Picture(i: "360ImageTest3", x: 2, y: 0), Picture(i: "360ImageTest4", x: 3, y: 0),Picture(i: "360ImageTest1", x: 4, y: 0),Picture(i: "360ImageTest2", x: 5, y: 0),Picture(i: "360ImageTest3", x: 6, y: 0),Picture(i: "360ImageTest4", x: 7, y: 0),Picture(i: "360ImageTest0", x: 8, y: 0),Picture(i: "360ImageTest1", x: 9, y: 0)]
     var xValue = 0
     var yValue = 0
@@ -68,14 +72,14 @@ class ViewController: UIViewController {
         
         if cardinalDirection == 3 && w > 0
         {
-            if secondFloor2DNorth[xValue][yValue].whiteSpaceNorth == false
+            if AppData.secondFloor2DNorth[xValue][yValue].whiteSpaceNorth == false
             {
                 cardinalDirection = 0
             }
         }
         else if cardinalDirection == 0 && w < 0
         {
-            if secondFloor2DNorth[xValue][yValue].whiteSpaceWest == false
+            if AppData.secondFloor2DNorth[xValue][yValue].whiteSpaceWest == false
             {
                 cardinalDirection = 3
             }
@@ -92,49 +96,49 @@ class ViewController: UIViewController {
         print("X:\(xValue)")
         print("Y:\(yValue)")
         print("J: \(j)")
-        if xValue + i <= ARRAY_SIZE_X && xValue + i >= 0
+        if xValue + i <= AppData.ARRAY_SIZE_X && xValue + i >= 0
         {
             xValue += i
             print("test1")
             xCheck = true
         }
-        if yValue + j <= ARRAY_SIZE_Y && yValue + j >= 0
+        if yValue + j <= AppData.ARRAY_SIZE_Y && yValue + j >= 0
         {  yValue += j
             print("test2")
             yCheck = true
         }
-        var tempImage = secondFloor2DNorth[xValue][yValue]
+        var tempImage = AppData.secondFloor2DNorth[xValue][yValue]
         if xCheck && yCheck
         {
             if tempImage.whiteSpaceNorth
             {
                 xValue-=i
                 yValue-=j
-                tempImage = secondFloor2DNorth[xValue][yValue]
+                tempImage = AppData.secondFloor2DNorth[xValue][yValue]
             }
         }
         print("Cardinal Direction: \(cardinalDirection)")
         if cardinalDirection == 0
         {
-            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageNorth
+            imageViewOutlet.image = AppData.secondFloor2DNorth[xValue][yValue].imageNorth
             print("displayNorth")
         }
         else if cardinalDirection == 1
         {
-            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageEast
+            imageViewOutlet.image = AppData.secondFloor2DNorth[xValue][yValue].imageEast
             print("displayEast")
         }
         else if cardinalDirection == 2
         {
-            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageSouth
+            imageViewOutlet.image = AppData.secondFloor2DNorth[xValue][yValue].imageSouth
             print("displaySouth")
         }
         else if cardinalDirection == 3
         {
-            imageViewOutlet.image = secondFloor2DNorth[xValue][yValue].imageWest
+            imageViewOutlet.image = AppData.secondFloor2DNorth[xValue][yValue].imageWest
             print("displayWest")
         }
-        print("isWhiteSpace \(secondFloor2DNorth[xValue][yValue].whiteSpaceNorth)")
+        print("isWhiteSpace \(AppData.secondFloor2DNorth[xValue][yValue].whiteSpaceNorth)")
         print("Reported X and Y:  \(xValue) , \(yValue)")
         print("Image Value:  \(tempImage.image)")
         
@@ -151,17 +155,17 @@ class ViewController: UIViewController {
     }
 //    func printData()
 //    {
-//        var output = "Cords: \(secondFloor2DNorth[xValue][yValue].image) \ \(secondFloor2DNorth[xValue][yValue].whiteSpace)"
+//        var output = "Cords: \(AppData.secondFloor2DNorth[xValue][yValue].image) \ \(AppData.secondFloor2DNorth[xValue][yValue].whiteSpace)"
 //    }
     func create2D()
     {
         var i = 0
         var j = 0
-        while (i <= ARRAY_SIZE_X)
+        while (i <= AppData.ARRAY_SIZE_X)
         {
             j = 0
             var littleArray = [Picture]()
-            while (j <= ARRAY_SIZE_Y)
+            while (j <= AppData.ARRAY_SIZE_Y)
             {
                 print("Create New Object")
                 var inString = "\(i),\(j)"
@@ -207,7 +211,7 @@ class ViewController: UIViewController {
                 //print(secondFloor2D[i][j].image)
                 j += 1
             }
-            secondFloor2DNorth[i].append(contentsOf: littleArray)
+            AppData.secondFloor2DNorth[i].append(contentsOf: littleArray)
             i += 1
         }
       

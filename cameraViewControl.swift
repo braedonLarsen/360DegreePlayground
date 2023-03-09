@@ -28,15 +28,23 @@ class cameraViewControl: UIViewController, UINavigationControllerDelegate, UIIma
     var newDirection = 0
     
     
+    
     @IBAction func xValueAction(_ sender: Any) {
-        newX = Int(xValueStepper.value)
-        xValueText.text = "X Value: \(newX)"
+        if Int(xValueStepper.value) <= AppData.ARRAY_SIZE_X
+        {
+            newX = Int(xValueStepper.value)
+            xValueText.text = "X Value: \(newX)"
+            print("newX: \(newX)")
+        }
     }
     
     @IBAction func yValueAction(_ sender: Any) {
-        newY = Int(yValueStepper.value)
-
-        yValueText.text = "Y Value: \(newY)"
+        if Int(yValueStepper.value) <= AppData.ARRAY_SIZE_Y
+        {
+            newY = Int(yValueStepper.value)
+            yValueText.text = "Y Value: \(newY)"
+            print("newY: \(newY)")
+        }
 
     }
     @IBAction func segmentDirectionAction(_ sender: Any) {
@@ -46,7 +54,6 @@ class cameraViewControl: UIViewController, UINavigationControllerDelegate, UIIma
     @IBAction func cameraAction(_ sender: Any) {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         present(imagePicker, animated: true, completion: nil)
-        
     }
     
     /*
