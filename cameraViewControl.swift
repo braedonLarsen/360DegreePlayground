@@ -18,6 +18,7 @@ class cameraViewControl: UIViewController, UINavigationControllerDelegate, UIIma
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var viewImageOutler: UIImageView!
+    @IBOutlet weak var imageDebugOutlet: UIImageView!
     @IBOutlet weak var xValueStepper: UIStepper!
     @IBOutlet weak var yValueStepper: UIStepper!
     @IBOutlet weak var xValueText: UILabel!
@@ -56,6 +57,27 @@ class cameraViewControl: UIViewController, UINavigationControllerDelegate, UIIma
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func addObjectAction(_ sender: Any) {
+        switch newDirection {
+        case 0:
+            AppData.secondFloor2DNorth[newX][newY].imageNorth = addImage
+            break
+        case 1:
+            AppData.secondFloor2DNorth[newX][newY].imageEast = addImage
+            break
+        case 2:
+            AppData.secondFloor2DNorth[newX][newY].imageSouth = addImage
+            break
+        
+        case 3:
+            AppData.secondFloor2DNorth[newX][newY].imageWest = addImage
+            break
+        default:
+            AppData.secondFloor2DNorth[newX][newY].imageNorth = addImage
+            
+        }
+       
+    }
     /*
     // MARK: - Navigation
 

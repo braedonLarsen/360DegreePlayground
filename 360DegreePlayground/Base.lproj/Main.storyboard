@@ -173,6 +173,19 @@
                                     <action selector="cameraAction:" destination="FpO-0a-1Uw" eventType="touchUpInside" id="KfJ-bM-6SX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCx-gT-hTz">
+                                <rect key="frame" x="144" y="590" width="104" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ADD"/>
+                                <connections>
+                                    <action selector="addObjectAction:" destination="FpO-0a-1Uw" eventType="touchUpInside" id="yBU-Or-Bwl"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p39-2A-eGz">
+                                <rect key="frame" x="76" y="690" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6xr-W0-weh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,6 +193,7 @@
                     <navigationItem key="navigationItem" id="cgT-zX-YKC"/>
                     <connections>
                         <outlet property="directionSegmentOutlet" destination="uGQ-uk-4xZ" id="WFn-lL-61y"/>
+                        <outlet property="imageDebugOutlet" destination="p39-2A-eGz" id="yoN-uj-MnE"/>
                         <outlet property="viewImageOutler" destination="ipm-3k-h0Q" id="Jr1-2J-waJ"/>
                         <outlet property="xValueStepper" destination="Dls-u0-vdX" id="f07-P1-0pb"/>
                         <outlet property="xValueText" destination="jEW-bq-OmE" id="ZmN-na-9k6"/>
