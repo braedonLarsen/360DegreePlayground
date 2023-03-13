@@ -172,10 +172,12 @@ class ViewController: UIViewController {
         var j = 0
         while (i <= AppData.ARRAY_SIZE_X)
         {
+            print("I: \(i)")
             j = 0
             while (j <= AppData.ARRAY_SIZE_Y)
             {
-                if AppData.secondFloor2DNorth[i][j].imageNorth != UIImage(named: "def")
+                print("J: \(j)")
+                if AppData.secondFloor2DNorth[i][j].imageNorth != UIImage(named: "def") && AppData.secondFloor2DNorth[i][j].whiteSpaceNorth == true
                 {
                     AppData.secondFloor2DNorth[i][j].whiteSpaceNorth = false
                     print("\(i),\(j) whiteSpaceUpdateNorth")
@@ -197,8 +199,9 @@ class ViewController: UIViewController {
                 }
                 j += 1
             }
+            i += 1
         }
-        i += 1
+        
     }
     func create2D()
     {
