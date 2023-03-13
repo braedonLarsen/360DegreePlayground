@@ -10,6 +10,7 @@ class AppData
     static var ARRAY_SIZE_X = 6
     static var ARRAY_SIZE_Y = 6
     static var secondFloor2DNorth = [[Picture]](repeating:[Picture]() , count: 7)
+    static var didUpdate = false 
 }
 class ViewController: UIViewController {
 
@@ -91,6 +92,12 @@ class ViewController: UIViewController {
     }
     func updateImage(i: Int, j: Int)
     {
+        if AppData.didUpdate
+        {
+            update2D()
+            AppData.didUpdate = false
+            
+        }
         var xCheck = false
         var yCheck = false
         print("X:\(xValue)")
@@ -140,6 +147,7 @@ class ViewController: UIViewController {
         }
         print("isWhiteSpace \(AppData.secondFloor2DNorth[xValue][yValue].whiteSpaceNorth)")
         print("Reported X and Y:  \(xValue) , \(yValue)")
+        print("isWhiteSpace+1 \(AppData.secondFloor2DNorth[xValue+1][yValue].whiteSpaceNorth)")
         print("Image Value:  \(tempImage.image)")
         
         
@@ -157,6 +165,41 @@ class ViewController: UIViewController {
 //    {
 //        var output = "Cords: \(AppData.secondFloor2DNorth[xValue][yValue].image) \ \(AppData.secondFloor2DNorth[xValue][yValue].whiteSpace)"
 //    }
+    func update2D()
+    {
+        print("updating 2D")
+        var i = 0
+        var j = 0
+        while (i <= AppData.ARRAY_SIZE_X)
+        {
+            j = 0
+            while (j <= AppData.ARRAY_SIZE_Y)
+            {
+                if AppData.secondFloor2DNorth[i][j].imageNorth != UIImage(named: "def")
+                {
+                    AppData.secondFloor2DNorth[i][j].whiteSpaceNorth = false
+                    print("\(i),\(j) whiteSpaceUpdateNorth")
+                }
+                if AppData.secondFloor2DNorth[i][j].imageEast != UIImage(named: "def")
+                {
+                    AppData.secondFloor2DNorth[i][j].whiteSpaceEast = false
+                    print("\(i),\(j) whiteSpaceUpdateEast")
+                }
+                if AppData.secondFloor2DNorth[i][j].imageSouth != UIImage(named: "def")
+                {
+                    AppData.secondFloor2DNorth[i][j].whiteSpaceSouth = false
+                    print("\(i),\(j) whiteSpaceUpdateSouth")
+                }
+                if AppData.secondFloor2DNorth[i][j].imageWest != UIImage(named: "def")
+                {
+                    AppData.secondFloor2DNorth[i][j].whiteSpaceWest = false
+                    print("\(i),\(j) whiteSpaceUpdateWest")
+                }
+                j += 1
+            }
+        }
+        i += 1
+    }
     func create2D()
     {
         var i = 0

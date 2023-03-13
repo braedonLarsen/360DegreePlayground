@@ -61,19 +61,33 @@ class cameraViewControl: UIViewController, UINavigationControllerDelegate, UIIma
         switch newDirection {
         case 0:
             AppData.secondFloor2DNorth[newX][newY].imageNorth = addImage
+            print("addNorth")
+            AppData.didUpdate = true
             break
         case 1:
             AppData.secondFloor2DNorth[newX][newY].imageEast = addImage
+            print("addEast")
+            AppData.didUpdate = true
+
             break
         case 2:
             AppData.secondFloor2DNorth[newX][newY].imageSouth = addImage
+            print("addSouth")
+            AppData.didUpdate = true
+
             break
         
         case 3:
             AppData.secondFloor2DNorth[newX][newY].imageWest = addImage
+            print("addWest")
+            AppData.didUpdate = true
+
             break
         default:
             AppData.secondFloor2DNorth[newX][newY].imageNorth = addImage
+            print("addDefault")
+            AppData.didUpdate = true
+
             
         }
        
