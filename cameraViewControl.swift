@@ -68,6 +68,7 @@ class cameraViewControl: UIViewController, UINavigationControllerDelegate, UIIma
             AppData.secondFloor2DNorth[newX][newY].imageEast = addImage
             print("addEast")
             AppData.didUpdate = true
+            
 
             break
         case 2:

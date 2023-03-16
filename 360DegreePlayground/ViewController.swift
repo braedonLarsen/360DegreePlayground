@@ -5,18 +5,18 @@
 //  Created by BRAEDON LARSEN on 2/9/23.
 //
 import UIKit
-class AppData
+class AppData: Codable
 {
     static var ARRAY_SIZE_X = 6
     static var ARRAY_SIZE_Y = 6
     static var secondFloor2DNorth = [[Picture]](repeating:[Picture]() , count: 7)
-    static var didUpdate = false 
+    static var didUpdate = false
 }
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageViewOutlet: UIImageView!
-    
-  
+     var twoDDataArray = [[DataPicture]](repeating:[DataPicture]() , count: 7)
+
     var currentArray = 0
 
     //var secondFloor: [Picture] = [Picture(i: "360ImageTest1", x: 0, y: 0), Picture(i: "360ImageTest2", x: 1, y: 0), Picture(i: "360ImageTest3", x: 2, y: 0), Picture(i: "360ImageTest4", x: 3, y: 0),Picture(i: "360ImageTest1", x: 4, y: 0),Picture(i: "360ImageTest2", x: 5, y: 0),Picture(i: "360ImageTest3", x: 6, y: 0),Picture(i: "360ImageTest4", x: 7, y: 0),Picture(i: "360ImageTest0", x: 8, y: 0),Picture(i: "360ImageTest1", x: 9, y: 0)]
@@ -31,6 +31,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //secondFloor2D[0][0] = Picture(i: "360ImageTest1", x: 0, y: 0)
         create2D()
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode("") {
+                           UserDefaults.standard.set(encoded, forKey: "theContacts")
+                       }
         updateImage(i: xValue, j: yValue)
         rotateImage(w: 0)
         // Do any additional setup after loading the view.
@@ -182,17 +186,17 @@ class ViewController: UIViewController {
                     AppData.secondFloor2DNorth[i][j].whiteSpaceNorth = false
                     print("\(i),\(j) whiteSpaceUpdateNorth")
                 }
-                if AppData.secondFloor2DNorth[i][j].imageEast != UIImage(named: "def")
+                if AppData.secondFloor2DNorth[i][j].imageEast != UIImage(named: "def") && AppData.secondFloor2DNorth[i][j].whiteSpaceEast == true
                 {
                     AppData.secondFloor2DNorth[i][j].whiteSpaceEast = false
                     print("\(i),\(j) whiteSpaceUpdateEast")
                 }
-                if AppData.secondFloor2DNorth[i][j].imageSouth != UIImage(named: "def")
+                if AppData.secondFloor2DNorth[i][j].imageSouth != UIImage(named: "def") && AppData.secondFloor2DNorth[i][j].whiteSpaceSouth == true
                 {
                     AppData.secondFloor2DNorth[i][j].whiteSpaceSouth = false
                     print("\(i),\(j) whiteSpaceUpdateSouth")
                 }
-                if AppData.secondFloor2DNorth[i][j].imageWest != UIImage(named: "def")
+                if AppData.secondFloor2DNorth[i][j].imageWest != UIImage(named: "def") && AppData.secondFloor2DNorth[i][j].whiteSpaceWest == true
                 {
                     AppData.secondFloor2DNorth[i][j].whiteSpaceWest = false
                     print("\(i),\(j) whiteSpaceUpdateWest")
@@ -203,6 +207,35 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func saveToCore(_ sender: Any) {
+        
+    
+        AppData.secondFloor2DNorth
+        var i = 0
+        var j = 0
+        while (i <= AppData.ARRAY_SIZE_X)
+        {
+            print("I: \(i)")
+            j = 0
+            while (j <= AppData.ARRAY_SIZE_Y)
+            {
+                
+                twoDDataArray[i][j] = DataPicture( i: "0", x:0, y:0 ,wSN: AppData.secondFloor2DNorth[i][j].whiteSpaceNorth, wSE: AppData.secondFloor2DNorth[i][j].whiteSpaceEast, wSS: AppData.secondFloor2DNorth[i][j].whiteSpaceSouth, wSW: AppData.secondFloor2DNorth[i][j].whiteSpaceWest, iN: AppData.secondFloor2DNorth[i][j].imageNorth.pngData()! as NSData, iE: AppData.secondFloor2DNorth[i][j].imageEast.pngData()! as NSData, iW: AppData.secondFloor2DNorth[i][j].imageWest.pngData()! as NSData, iS: AppData.secondFloor2DNorth[i][j].imageSouth.pngData()! as NSData)
+                
+                
+            }
+                j += 1
+        }
+            i += 1
+        }
+        
+    
+        
+        
+        
+    
+    
     func create2D()
     {
         var i = 0

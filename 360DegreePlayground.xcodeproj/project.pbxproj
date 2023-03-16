@@ -10,6 +10,7 @@
 		4554760B29B7749600BFDB7D /* cameraViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554760A29B7749600BFDB7D /* cameraViewControl.swift */; };
 		455C2A1429AF91F000AB94A4 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455C2A1329AF91F000AB94A4 /* Room.swift */; };
 		45A8A7ED2996819400524186 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8A7EC2996819400524186 /* Picture.swift */; };
+		45AA5E6F29C1F42B00F69849 /* Core Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45AA5E6D29C1F42B00F69849 /* Core Data.xcdatamodeld */; };
 		45ADC6C329952CFD00AB76AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6C229952CFD00AB76AE /* AppDelegate.swift */; };
 		45ADC6C529952CFD00AB76AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6C429952CFD00AB76AE /* SceneDelegate.swift */; };
 		45ADC6C729952CFD00AB76AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6C629952CFD00AB76AE /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 		45ADC6DA29952CFF00AB76AE /* _60DegreePlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6D929952CFF00AB76AE /* _60DegreePlaygroundTests.swift */; };
 		45ADC6E429952CFF00AB76AE /* _60DegreePlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6E329952CFF00AB76AE /* _60DegreePlaygroundUITests.swift */; };
 		45ADC6E629952CFF00AB76AE /* _60DegreePlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADC6E529952CFF00AB76AE /* _60DegreePlaygroundUITestsLaunchTests.swift */; };
+		45B238BA29C3446B00378D7C /* DataPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B238B929C3446B00378D7C /* DataPicture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		4554760A29B7749600BFDB7D /* cameraViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraViewControl.swift; sourceTree = "<group>"; };
 		455C2A1329AF91F000AB94A4 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		45A8A7EC2996819400524186 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		45AA5E6E29C1F42B00F69849 /* Core Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Core Data.xcdatamodel"; sourceTree = "<group>"; };
 		45ADC6BF29952CFD00AB76AE /* 360DegreePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 360DegreePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45ADC6C229952CFD00AB76AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45ADC6C429952CFD00AB76AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		45ADC6DF29952CFF00AB76AE /* 360DegreePlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 360DegreePlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45ADC6E329952CFF00AB76AE /* _60DegreePlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _60DegreePlaygroundUITests.swift; sourceTree = "<group>"; };
 		45ADC6E529952CFF00AB76AE /* _60DegreePlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _60DegreePlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		45B238B929C3446B00378D7C /* DataPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4554760A29B7749600BFDB7D /* cameraViewControl.swift */,
+				45B238B929C3446B00378D7C /* DataPicture.swift */,
 				455C2A1329AF91F000AB94A4 /* Room.swift */,
 				45ADC6C129952CFD00AB76AE /* 360DegreePlayground */,
 				45ADC6D829952CFF00AB76AE /* 360DegreePlaygroundTests */,
@@ -115,6 +120,7 @@
 				45ADC6CB29952CFF00AB76AE /* Assets.xcassets */,
 				45ADC6CD29952CFF00AB76AE /* LaunchScreen.storyboard */,
 				45ADC6D029952CFF00AB76AE /* Info.plist */,
+				45AA5E6D29C1F42B00F69849 /* Core Data.xcdatamodeld */,
 			);
 			path = 360DegreePlayground;
 			sourceTree = "<group>";
@@ -269,10 +275,12 @@
 			files = (
 				45A8A7ED2996819400524186 /* Picture.swift in Sources */,
 				45ADC6C729952CFD00AB76AE /* ViewController.swift in Sources */,
+				45B238BA29C3446B00378D7C /* DataPicture.swift in Sources */,
 				45ADC6C329952CFD00AB76AE /* AppDelegate.swift in Sources */,
 				45ADC6C529952CFD00AB76AE /* SceneDelegate.swift in Sources */,
 				455C2A1429AF91F000AB94A4 /* Room.swift in Sources */,
 				4554760B29B7749600BFDB7D /* cameraViewControl.swift in Sources */,
+				45AA5E6F29C1F42B00F69849 /* Core Data.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +622,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		45AA5E6D29C1F42B00F69849 /* Core Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				45AA5E6E29C1F42B00F69849 /* Core Data.xcdatamodel */,
+			);
+			currentVersion = 45AA5E6E29C1F42B00F69849 /* Core Data.xcdatamodel */;
+			path = "Core Data.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 45ADC6B729952CFD00AB76AE /* Project object */;
 }
