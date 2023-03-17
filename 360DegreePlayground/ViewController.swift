@@ -31,10 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //secondFloor2D[0][0] = Picture(i: "360ImageTest1", x: 0, y: 0)
         create2D()
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode("") {
-                           UserDefaults.standard.set(encoded, forKey: "theContacts")
-                       }
+
         updateImage(i: xValue, j: yValue)
         rotateImage(w: 0)
         // Do any additional setup after loading the view.
@@ -208,29 +205,63 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func saveToCore(_ sender: Any) {
-        
-    
-        AppData.secondFloor2DNorth
-        var i = 0
-        var j = 0
-        while (i <= AppData.ARRAY_SIZE_X)
-        {
-            print("I: \(i)")
-            j = 0
-            while (j <= AppData.ARRAY_SIZE_Y)
-            {
-                
-                twoDDataArray[i][j] = DataPicture( i: "0", x:0, y:0 ,wSN: AppData.secondFloor2DNorth[i][j].whiteSpaceNorth, wSE: AppData.secondFloor2DNorth[i][j].whiteSpaceEast, wSS: AppData.secondFloor2DNorth[i][j].whiteSpaceSouth, wSW: AppData.secondFloor2DNorth[i][j].whiteSpaceWest, iN: AppData.secondFloor2DNorth[i][j].imageNorth.pngData()! as NSData, iE: AppData.secondFloor2DNorth[i][j].imageEast.pngData()! as NSData, iW: AppData.secondFloor2DNorth[i][j].imageWest.pngData()! as NSData, iS: AppData.secondFloor2DNorth[i][j].imageSouth.pngData()! as NSData)
-                
-                
-            }
-                j += 1
-        }
-            i += 1
-        }
-        
-    
+//    @IBAction func saveToCore(_ sender: Any) {
+//
+//
+//        AppData.secondFloor2DNorth
+//        var i = 0
+//        var j = 0
+//        while (i <= AppData.ARRAY_SIZE_X)
+//        {
+//            print("I: \(i)")
+//            j = 0
+//            while (j <= AppData.ARRAY_SIZE_Y)
+//            {
+//
+//                twoDDataArray[i][j] = DataPicture( i: "0", x:0, y:0 ,wSN: AppData.secondFloor2DNorth[i][j].whiteSpaceNorth, wSE: AppData.secondFloor2DNorth[i][j].whiteSpaceEast, wSS: AppData.secondFloor2DNorth[i][j].whiteSpaceSouth, wSW: AppData.secondFloor2DNorth[i][j].whiteSpaceWest, iN: AppData.secondFloor2DNorth[i][j].imageNorth.pngData()! as NSData, iE: AppData.secondFloor2DNorth[i][j].imageEast.pngData()! as NSData, iW: AppData.secondFloor2DNorth[i][j].imageWest.pngData()! as NSData, iS: AppData.secondFloor2DNorth[i][j].imageSouth.pngData()! as NSData)
+//
+//
+//            }
+//                j += 1
+//        }
+//            i += 1
+//
+//        let encoder = JSONEncoder()
+//        if let encoded = try? encoder.encode(twoDDataArray) {
+//                           UserDefaults.standard.set(encoded, forKey: "twoDDataArray")
+//                       }
+//
+//        }
+//
+//
+//    @IBAction func loadFromCore(_ sender: Any) {
+//
+//
+//
+//        if let items = UserDefaults.standard.data(forKey: "twoDDataArray") {
+//                        let decoder = JSONDecoder()
+//                        if let decoded = try? decoder.decode([[DataPicture]].self, from: items) {
+//                            twoDDataArray = decoded
+//                        }
+//                }
+//        var i = 0
+//        var j = 0
+//        while (i <= AppData.ARRAY_SIZE_X)
+//        {
+//            j = 0
+//            while (j <= AppData.ARRAY_SIZE_Y)
+//            {
+//                AppData.secondFloor2DNorth[i][j].imageNorth = UIImage(contentsOfFile: "twoDDataArray[i][j].imageNorth")!
+//                AppData.secondFloor2DNorth[i][j].imageEast = UIImage(contentsOfFile: "twoDDataArray[i][j].imageEast")!
+//                AppData.secondFloor2DNorth[i][j].imageSouth = UIImage(contentsOfFile: "twoDDataArray[i][j].imageSouth")!
+//                AppData.secondFloor2DNorth[i][j].imageWest = UIImage(contentsOfFile: "twoDDataArray[i][j].imageWest")!
+//                j += 1
+//            }
+//            i += 1
+//        }
+//
+//    }
+//
         
         
         

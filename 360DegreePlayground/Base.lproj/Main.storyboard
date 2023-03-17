@@ -89,13 +89,23 @@
                                     <segue destination="FpO-0a-1Uw" kind="show" id="Q5v-Qm-aQ8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y1-VB-XPb">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y1-VB-XPb">
                                 <rect key="frame" x="16" y="773" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="externaldrive.fill" catalog="system"/>
                                 <connections>
                                     <action selector="saveToCore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y2G-Qr-pdk"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoc-KB-a5E">
+                                <rect key="frame" x="93" y="773" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="chevron.up.square.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="loadFromCore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cIE-No-CH0"/>
+                                    <action selector="saveToCore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gyP-JW-4bP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -248,6 +258,7 @@
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="104"/>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="chevron.up.square.fill" catalog="system" width="128" height="114"/>
         <image name="externaldrive.fill" catalog="system" width="128" height="87"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

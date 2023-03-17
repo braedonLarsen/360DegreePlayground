@@ -16,7 +16,7 @@ import Foundation
 
 import Foundation
 import UIKit
-class DataPicture: Codable
+class DataPicture
 {
     
    
@@ -30,8 +30,17 @@ class DataPicture: Codable
     var imageSouth: NSData
     
   
-    
-    
+    required init(from decoder: Decoder) throws
+    {
+        whiteSpaceNorth = false
+        whiteSpaceEast = false
+        whiteSpaceSouth = false
+        whiteSpaceWest = false
+        imageNorth = NSData()
+        imageEast = NSData()
+        imageWest = NSData()
+        imageSouth = NSData()
+    }
 
     
     
