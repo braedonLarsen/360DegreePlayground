@@ -10,12 +10,15 @@ class AppData: Codable
     static var ARRAY_SIZE_X = 6
     static var ARRAY_SIZE_Y = 6
     static var secondFloor2DNorth = [[Picture]](repeating:[Picture]() , count: 7)
+    static var twoDDataArray = [[DataPicture]](repeating:[DataPicture]() , count: 7)
+   
     static var didUpdate = false
 }
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageViewOutlet: UIImageView!
-     var twoDDataArray = [[DataPicture]](repeating:[DataPicture]() , count: 7)
+   // AppData.twoDDataArray[0][0] = DataPicture(i: "4", x: 3, y: 2, wSN: true, wSE: true, wSS: true, wSW: true, iN: Data(), iE: Data(), iW: Data(), iS: Data())
+    
 
     var currentArray = 0
 
@@ -148,7 +151,7 @@ class ViewController: UIViewController {
         }
         print("isWhiteSpace \(AppData.secondFloor2DNorth[xValue][yValue].whiteSpaceNorth)")
         print("Reported X and Y:  \(xValue) , \(yValue)")
-        print("isWhiteSpace+1 \(AppData.secondFloor2DNorth[xValue+1][yValue].whiteSpaceNorth)")
+        //print("isWhiteSpace+1 \(AppData.secondFloor2DNorth[xValue+1][yValue].whiteSpaceNorth)")
         print("Image Value:  \(tempImage.image)")
         
         
@@ -166,6 +169,8 @@ class ViewController: UIViewController {
 //    {
 //        var output = "Cords: \(AppData.secondFloor2DNorth[xValue][yValue].image) \ \(AppData.secondFloor2DNorth[xValue][yValue].whiteSpace)"
 //    }
+    
+
     func update2D()
     {
         print("updating 2D")
@@ -205,63 +210,61 @@ class ViewController: UIViewController {
         
     }
     
-//    @IBAction func saveToCore(_ sender: Any) {
-//
-//
-//        AppData.secondFloor2DNorth
-//        var i = 0
-//        var j = 0
-//        while (i <= AppData.ARRAY_SIZE_X)
-//        {
-//            print("I: \(i)")
-//            j = 0
-//            while (j <= AppData.ARRAY_SIZE_Y)
-//            {
-//
-//                twoDDataArray[i][j] = DataPicture( i: "0", x:0, y:0 ,wSN: AppData.secondFloor2DNorth[i][j].whiteSpaceNorth, wSE: AppData.secondFloor2DNorth[i][j].whiteSpaceEast, wSS: AppData.secondFloor2DNorth[i][j].whiteSpaceSouth, wSW: AppData.secondFloor2DNorth[i][j].whiteSpaceWest, iN: AppData.secondFloor2DNorth[i][j].imageNorth.pngData()! as NSData, iE: AppData.secondFloor2DNorth[i][j].imageEast.pngData()! as NSData, iW: AppData.secondFloor2DNorth[i][j].imageWest.pngData()! as NSData, iS: AppData.secondFloor2DNorth[i][j].imageSouth.pngData()! as NSData)
-//
-//
-//            }
-//                j += 1
-//        }
-//            i += 1
-//
-//        let encoder = JSONEncoder()
-//        if let encoded = try? encoder.encode(twoDDataArray) {
-//                           UserDefaults.standard.set(encoded, forKey: "twoDDataArray")
-//                       }
-//
-//        }
-//
-//
-//    @IBAction func loadFromCore(_ sender: Any) {
-//
-//
-//
-//        if let items = UserDefaults.standard.data(forKey: "twoDDataArray") {
-//                        let decoder = JSONDecoder()
-//                        if let decoded = try? decoder.decode([[DataPicture]].self, from: items) {
-//                            twoDDataArray = decoded
-//                        }
-//                }
-//        var i = 0
-//        var j = 0
-//        while (i <= AppData.ARRAY_SIZE_X)
-//        {
-//            j = 0
-//            while (j <= AppData.ARRAY_SIZE_Y)
-//            {
-//                AppData.secondFloor2DNorth[i][j].imageNorth = UIImage(contentsOfFile: "twoDDataArray[i][j].imageNorth")!
-//                AppData.secondFloor2DNorth[i][j].imageEast = UIImage(contentsOfFile: "twoDDataArray[i][j].imageEast")!
-//                AppData.secondFloor2DNorth[i][j].imageSouth = UIImage(contentsOfFile: "twoDDataArray[i][j].imageSouth")!
-//                AppData.secondFloor2DNorth[i][j].imageWest = UIImage(contentsOfFile: "twoDDataArray[i][j].imageWest")!
-//                j += 1
-//            }
-//            i += 1
-//        }
-//
-//    }
-//
+    @IBAction func saveToCore(_ sender: Any) {  
+        var i = 0
+        var j = 0
+        while (i < AppData.ARRAY_SIZE_X)
+        {
+            print("Loading I: \(i)")
+            j = 0
+            while (j < AppData.ARRAY_SIZE_Y)
+            {
+                print("Loading J: \(j)")
+
+                AppData.twoDDataArray[i][j] = DataPicture( i: "0", x:0, y:0 ,wSN: AppData.secondFloor2DNorth[i][j].whiteSpaceNorth, wSE: AppData.secondFloor2DNorth[i][j].whiteSpaceEast, wSS: AppData.secondFloor2DNorth[i][j].whiteSpaceSouth, wSW: AppData.secondFloor2DNorth[i][j].whiteSpaceWest, iN: AppData.secondFloor2DNorth[i][j].imageNorth.pngData()! as Data, iE: AppData.secondFloor2DNorth[i][j].imageEast.pngData()! as Data, iW: AppData.secondFloor2DNorth[i][j].imageWest.pngData()! as Data, iS: AppData.secondFloor2DNorth[i][j].imageSouth.pngData()! as Data)
+
+
+            }
+                j += 1
+        }
+            i += 1
+
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(AppData.twoDDataArray) {
+                           UserDefaults.standard.set(encoded, forKey: "AppData.twoDDataArray")
+                       }
+
+        }
+
+
+    @IBAction func loadFromCore(_ sender: Any) {
+
+
+
+        if let items = UserDefaults.standard.data(forKey: "twoDDataArray") {
+                        let decoder = JSONDecoder()
+                        if let decoded = try? decoder.decode([[DataPicture]].self, from: items) {
+                            AppData.twoDDataArray = decoded
+                        }
+                }
+        var i = 0
+        var j = 0
+        while (i < AppData.ARRAY_SIZE_X)
+        {
+            j = 0
+            while (j < AppData.ARRAY_SIZE_Y)
+            {
+                AppData.secondFloor2DNorth[i][j].imageNorth = UIImage(data: AppData.twoDDataArray[i][j].imageNorth)!
+                AppData.secondFloor2DNorth[i][j].imageEast = UIImage(data: AppData.twoDDataArray[i][j].imageEast)!
+                AppData.secondFloor2DNorth[i][j].imageSouth = UIImage(data: AppData.twoDDataArray[i][j].imageSouth)!
+                AppData.secondFloor2DNorth[i][j].imageWest = UIImage(data: AppData.twoDDataArray[i][j].imageWest)!
+                j += 1
+            }
+            i += 1
+        }
+
+    }
+
         
         
         
